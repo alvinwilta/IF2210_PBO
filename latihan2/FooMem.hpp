@@ -1,4 +1,11 @@
 //file FooMem.hpp
+/*
+    Nama: Alvin Wilta
+    NIM: 13519163
+    Ruang: 7
+    Tanggal: 10/02/2021
+    Topik: Latihan 2
+*/
 
 #ifndef _FOOMEM_HPP_
 #define _FOOMEM_HPP_
