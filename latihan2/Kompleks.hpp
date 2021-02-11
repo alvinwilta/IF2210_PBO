@@ -32,9 +32,9 @@ class Kompleks
         //operator+ untuk menjumlahkan 2 buah bilangan kompleks
 
         //operator overloading untuk pengurangan 2 buah bilangan kompleks
-        //oeprator- untuk mengurangi 2 buah bilangan kompleks, realisasi sbg friend function dan menerima 2 bilangan kompleks
+        //operator- untuk mengurangi 2 buah bilangan kompleks, realisasi sbg friend function dan menerima 2 bilangan kompleks
         //mengirimkan sebuah bilangan kompleks
-        
+
 };
 
 
