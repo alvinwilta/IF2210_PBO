@@ -8,17 +8,18 @@ class Kendaraan
 {
 	private :
 		int nomorKendaraan;
-		string kategori;
+//		string kategori;
 		string merk;
 		int tahunKeluaran;
 	public :
 		Kendaraan();
-		Kendaraan(int nomorKendaraan, string kategori, string merk, int tahun);
+//		Kendaraan(int nomorKendaraan, string kategori, string merk, int tahun);
+		Kendaraan(int nomorKendaraan, string merk, int tahun);
 		Kendaraan(const Kendaraan& k);
 		void operator=(const Kendaraan& k);
 		~Kendaraan();
 		
-		void PrintInfo() const;
-		long long BiayaSewa(int lamaSewa) const;
+		virtual void PrintInfo() const;
+		virtual long long BiayaSewa(int lamaSewa) const;
 };
 #endif

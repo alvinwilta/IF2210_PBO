@@ -1,60 +1,79 @@
 //file KoleksiKendaraan.cpp
 
 #include <iostream>
-#include "Koleksikendaraan.hpp"
-
+#include "KoleksiKendaraan.hpp"
+#include "Kendaraan.hpp"
+#include "Bus.hpp"
+// #include "Car.hpp"
+// #include "Minibus.hpp"
 using namespace std;
-KoleksiKendaraan::KoleksiKendaraan() 
+
+KoleksiKendaraan :: KoleksiKendaraan()
 {
     this->size = 100;
     this->neff = 0;
     this->array = new Kendaraan[this->size];
 }
 
-KoleksiKendaraan::KoleksiKendaraan(int size) 
+KoleksiKendaraan :: KoleksiKendaraan(int size)
 {
     this->size = size;
     this->neff = 0;
     this->array = new Kendaraan[this->size];
 }
 
-KoleksiKendaraan::KoleksiKendaraan(const KoleksiKendaraan& kl) 
+KoleksiKendaraan :: KoleksiKendaraan(const KoleksiKendaraan& kk)
 {
-    this->size = kl.size;
-    this->neff = kl.neff;
-    this->array = new Kendaraan[kl.size];
-    for (int i=0; i<this->neff; i++) 
-    {
-        this->array[i] = kl.array[i];
+    this->size = kk.size;
+    this->neff = kk.neff;
+    this->array = new Kendaraan[kk.size];
+    
+	for (int i = 0; i < this->neff; i++)
+	{
+        this->array[i] = kk.array[i];
     }
 }
 
-KoleksiKendaraan::~KoleksiKendaraan() 
+void KoleksiKendaraan :: operator=(const KoleksiKendaraan& kk)
 {
-    delete[] array;
+	delete[] this->array;
+	
+	this->size = kk.size;
+    this->neff = kk.neff;
+    this->array = new Kendaraan[this->size];
+    for (int i = 0; i < this->neff; i++)
+	{
+        this->array[i] = kk.array[i];
+    }
 }
 
-void KoleksiKendaraan::PrintAll() 
+KoleksiKendaraan :: ~KoleksiKendaraan()
 {
-    for (int i=0; i<=neff-1; ++i) 
-    {
+    delete[] array;
+    this->neff = 0;
+    this->size = 0;
+}
+
+void KoleksiKendaraan :: PrintAll() const
+{
+    for (int i = 0; i < this->neff; i++)
+	{
         array[i].PrintInfo();
     }
 }
 
-KoleksiKendaraan& KoleksiKendaraan::operator<<(Kendaraan &k) 
+void KoleksiKendaraan :: operator<<(Kendaraan& k)
 {
     this->array[this->neff] = k;
-    return *this;
+    this->neff++;
 }
 
-KoleksiKendaraan& KoleksiKendaraan::operator<<(KoleksiKendaraan &kl) 
+void KoleksiKendaraan :: operator<<(KoleksiKendaraan& kk)
 {
-    int i = 0;
-    while(this->neff < this->size && i < kl.neff)
+	int i = 0;
+    while(this->neff < this->size && i < kk.neff)
     {
-        (*this) << kl.array[i];
-        ++i;
-    }
-    return *this;
+    	(*this) << kk.array[i];
+    	i++;
+	}
 }

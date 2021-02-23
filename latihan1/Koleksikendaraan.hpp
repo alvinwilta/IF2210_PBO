@@ -5,24 +5,23 @@
 #define __KOL_KENDARAAN__
 #include "Kendaraan.hpp"
 
-class KoleksiKendaraan 
+class KoleksiKendaraan
 {
-    private:
-        int size;
-        int neff;
-        Kendaraan* array;
+	private :
+		int size;
+		int neff;
+		Kendaraan* array;
 
-    public:
-        KoleksiKendaraan();
-        KoleksiKendaraan(int size);
-        KoleksiKendaraan(const KoleksiKendaraan& kl);
-        ~KoleksiKendaraan();
-
-        void PrintAll();
-        KoleksiKendaraan& operator<<(Kendaraan &k);
-        KoleksiKendaraan& operator<<(KoleksiKendaraan &kl);
-    
+	public :
+		KoleksiKendaraan();
+		KoleksiKendaraan(int size);
+		KoleksiKendaraan(const KoleksiKendaraan& kk);
+		void operator=(const KoleksiKendaraan& kk);
+		~KoleksiKendaraan();
+		
+		void PrintAll() const;
+		void operator<<(Kendaraan& k);
+		void operator<<(KoleksiKendaraan& kk);
 };
-
 
 #endif
