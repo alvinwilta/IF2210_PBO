@@ -51,21 +51,19 @@ void ArtistUser::uploadMusic(char* judulMusik) {
 }
 
 void ArtistUser::deleteUploadedMusic(char* judulMusik) {
-    if (this->num_of_music_uploaded > 0) {
-        int index;
-        for (int i = 0; i < this->num_of_music_uploaded; i++) {
-            if (strcmp(judulMusik, this->uploaded_music_list[i]) == 0) {
-                index = i;
-                break;
-            }
+    int index;
+    for (int i = 0; i < this->num_of_music_uploaded; i++) {
+        if (strcmp(judulMusik, this->uploaded_music_list[i]) == 0) {
+            index = i;
+            break;
         }
-
-        for (int i = index; i < this->num_of_favourite_music; ++i) {
-            this->uploaded_music_list[i] = this->uploaded_music_list[i+1];
-        }
-
-        this->num_of_favourite_music--;
     }
+
+    for (int i = index; i < this->num_of_favourite_music; ++i) {
+        this->uploaded_music_list[i] = this->uploaded_music_list[i+1];
+    }
+
+    this->num_of_favourite_music--;
 }
 
 void ArtistUser::viewUploadedMusicList() const {
